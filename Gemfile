@@ -55,8 +55,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'materialize-sass'
 gem 'redcarpet'
 gem 'slim-rails'
-gem 'obscenity'
-gem 'devise'
-gem 'cancancan'
 gem 'jquery-ui-rails'
 gem 'rails-settings-cached'
