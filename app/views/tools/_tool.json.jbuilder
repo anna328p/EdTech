@@ -1,2 +1,0 @@
-json.extract! tool, :id, :name, :description, :picture_url, :platform, :price, :grade_low, :grade_high, :creativity, :communication, :collaboration, :citizenship, :critical_thinking, :empowered_learner, :digital_citizen, :knowledge_constructor, :innovative_designer, :computational_thinker, :creative_communicator, :global_collaborator, :created_at, :updated_at
-json.url tool_url(tool, format: :json)
