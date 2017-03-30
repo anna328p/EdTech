@@ -57,3 +57,7 @@ gem 'redcarpet'
 gem 'slim-rails'
 gem 'jquery-ui-rails'
 gem 'rails-settings-cached'
+gem 'money'
+gem 'monetize'
+gem 'money-rails', '~>1'
+
