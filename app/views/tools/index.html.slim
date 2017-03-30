@@ -1,0 +1,78 @@
+h1 Listing tools
+
+table
+  thead
+    tr
+      th Name
+      th Description
+      th Picture
+      th Platform
+      th Price
+      th Grades
+      th title="Creativity"
+        i class="material-icons" lightbulb_outline
+      th title="Communication"
+        i class="material-icons" chat
+      th title="Collaboration"
+        i class="material-icons" group_work
+      th title="Citizenship"
+        i class="material-icons" account_balance
+      th title="Critical thinking"
+        i class="material-icons" error
+      th title="Empowered learner"
+        i class="material-icons" power
+      th title="Digital citizen"
+        i class="material-icons" cloud
+      th title="Knowledge constructor"
+        i class="material-icons" extension
+      th title="Innovative designer"
+        i class="material-icons" photo
+      th title="Computational thinker"
+        i class="material-icons" pie_chart_outlined
+      th title="Creative communicator"
+        i class="material-icons" create
+      th title="Global collaborator"
+        i class="material-icons" language
+      th colspan=3
+
+  tbody
+    - @tools.each do |tool|
+      tr
+        td = tool.name
+        td = tool.description
+        td
+          img src=tool.picture_url width="100px"
+        td = tool.platform
+        td = "$" + tool.price_dollars.to_s
+        td #{tool.grade_low}-#{tool.grade_high}
+        td
+          i.material-icons = tool.creativity ? "check_circle" : "not_interested"
+        td
+          i.material-icons = tool.communication ? "check_circle" : "not_interested"
+        td
+          i.material-icons = tool.collaboration ? "check_circle" : "not_interested"
+        td
+          i.material-icons = tool.citizenship ? "check_circle" : "not_interested"
+        td
+          i.material-icons = tool.critical_thinking ? "check_circle" : "not_interested"
+        td
+          i.material-icons = tool.empowered_learner ? "check_circle" : "not_interested"
+        td
+          i.material-icons = tool.digital_citizen ? "check_circle" : "not_interested"
+        td
+          i.material-icons = tool.knowledge_constructor ? "check_circle" : "not_interested"
+        td
+          i.material-icons = tool.innovative_designer ? "check_circle" : "not_interested"
+        td
+          i.material-icons = tool.computational_thinker ? "check_circle" : "not_interested"
+        td
+          i.material-icons = tool.creative_communicator ? "check_circle" : "not_interested"
+        td
+          i.material-icons = tool.global_collaborator ? "check_circle" : "not_interested"
+        td.material-icons = link_to 'pageview', tool
+        td.material-icons = link_to 'edit', edit_tool_path(tool)
+        td.material-icons = link_to 'delete_forever', tool, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Tool', new_tool_path
