@@ -44,7 +44,7 @@ table
           img src=tool.picture_url width="100px"
         td = tool.platform
         td = "$" + tool.price_dollars.to_s
-        td = (tool.grade_low == tool.grade_high) ? ((tool.grade_low == 0) ? 'K' : tool.grade_low) : "#{(tool.grade_low == 0) ? 'K' : tool.grade_low}-#{tool.grade_high}"
+        td #{tool.grade_low}-#{tool.grade_high}
         td
           i.material-icons = tool.creativity ? "check_circle" : "not_interested"
         td
