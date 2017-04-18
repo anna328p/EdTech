@@ -6,12 +6,15 @@ html
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"
+    script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"
 
   body
     header.page-header
-      .container
-        .section
-          h2 = yield :title
-        .divider
+      .row
+        .col.s10.offset-s1
+          .section
+            h2 = yield :title
+          .divider
     main
-      .container = yield
+      .row
+        .col.s10.offset-s1 = yield

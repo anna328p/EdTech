@@ -5,6 +5,10 @@ class ToolsController < ApplicationController
   # GET /tools.json
   def index
     @tools = Tool.all
+    @pictures = (params[:compact] == "true") ? false : true
+    if params[:cards]
+      render "cards.slim"
+    end
   end
 
   # GET /tools/1

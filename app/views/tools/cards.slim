@@ -1,13 +1,13 @@
 - content_for :title, "Listing tools"
 
-/javascript:
+javascript:
   window.onload = function () {
     $('.cards').masonry({
       itemSelector: '.card',
     });
   }
 
-/.row
+.row
   - @tools.each do |tool|
     .col.s12.m6.l3
       .cards
@@ -51,7 +51,7 @@
 
 
 
-table
+/table
   thead
     tr
       th Name
@@ -61,7 +61,30 @@ table
       th Platform
       th Price
       th Grades
-      th width="500px" Standards
+      th title="Creativity"
+        i.material-icons lightbulb_outline
+      th title="Communication"
+        i.material-icons chat
+      th title="Collaboration"
+        i.material-icons group_work
+      th title="Citizenship"
+        i.material-icons account_balance
+      th title="Critical thinking"
+        i.material-icons error
+      th title="Empowered learner"
+        i.material-icons power
+      th title="Digital citizen"
+        i.material-icons cloud
+      th title="Knowledge constructor"
+        i.material-icons extension
+      th title="Innovative designer"
+        i.material-icons photo
+      th title="Computational thinker"
+        i.material-icons pie_chart_outlined
+      th title="Creative communicator"
+        i.material-icons create
+      th title="Global collaborator"
+        i.material-icons language
       th title="View"
         i.material-icons pageview
       th title="Edit"
@@ -81,18 +104,29 @@ table
         td = "$" + tool.price_dollars.to_s
         td = (tool.grade_low == tool.grade_high) ? ((tool.grade_low == 0) ? 'K' : tool.grade_low) : "#{(tool.grade_low == 0) ? 'K' : tool.grade_low}-#{tool.grade_high}"
         td
-          i.material-icons title="Creativity" style="color: #{tool.creativity ? 'black' : 'lightgrey'}" lightbulb_outline
-          i.material-icons title="Communication" style="color: #{tool.communication ? 'black' : 'lightgrey'}" chat
-          i.material-icons title="Collaboration" style="color: #{tool.collaboration ? 'black' : 'lightgrey'}" group_work
-          i.material-icons title="Citizenship" style="color: #{tool.citizenship ? 'black' : 'lightgrey'}" account_balance
-          i.material-icons title="Critical thinking" style="color: #{tool.critical_thinking ? 'black' : 'lightgrey'}" error
-          i.material-icons title="Empowered learner" style="color: #{tool.empowered_learner ? 'black' : 'lightgrey'}" power
-          i.material-icons title="Digital citizen" style="color: #{tool.digital_citizen ? 'black' : 'lightgrey'}" cloud
-          i.material-icons title="Knowledge constructor" style="color: #{tool.knowledge_constructor ? 'black' : 'lightgrey'}" extension
-          i.material-icons title="Innovative designer" style="color: #{tool.innovative_designer ? 'black' : 'lightgrey'}" photo
-          i.material-icons title="Computational thinker" style="color: #{tool.computational_thinker ? 'black' : 'lightgrey'}" pie_chart_outlined
-          i.material-icons title="Creative communicator" style="color: #{tool.creative_communicator ? 'black' : 'lightgrey'}" create
-          i.material-icons title="Global collaborator" style="color: #{tool.global_collaborator ? 'black' : 'lightgrey'}" language
+          i.material-icons = tool.creativity ? "check_circle" : "not_interested"
+        td
+          i.material-icons = tool.communication ? "check_circle" : "not_interested"
+        td
+          i.material-icons = tool.collaboration ? "check_circle" : "not_interested"
+        td
+          i.material-icons = tool.citizenship ? "check_circle" : "not_interested"
+        td
+          i.material-icons = tool.critical_thinking ? "check_circle" : "not_interested"
+        td
+          i.material-icons = tool.empowered_learner ? "check_circle" : "not_interested"
+        td
+          i.material-icons = tool.digital_citizen ? "check_circle" : "not_interested"
+        td
+          i.material-icons = tool.knowledge_constructor ? "check_circle" : "not_interested"
+        td
+          i.material-icons = tool.innovative_designer ? "check_circle" : "not_interested"
+        td
+          i.material-icons = tool.computational_thinker ? "check_circle" : "not_interested"
+        td
+          i.material-icons = tool.creative_communicator ? "check_circle" : "not_interested"
+        td
+          i.material-icons = tool.global_collaborator ? "check_circle" : "not_interested"
         td
           i.material-icons = link_to 'pageview', tool
         td
