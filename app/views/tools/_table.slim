@@ -1,0 +1,52 @@
+table
+	thead
+		tr
+			th Name
+			th Description
+			- if @pictures
+				th Picture
+			th Platform
+			th Price
+			th Grades
+			th width="500px" Standards
+			th title="View"
+				i.material-icons pageview
+			th title="Edit"
+				i.material-icons edit
+			th title="Delete"
+				i.material-icons delete_forever
+
+	tbody
+		- @tools.each do |tool|
+			tr
+				td = tool.name
+				td = tool.description
+				- if @pictures
+					td
+						img src=tool.picture_url width="100px"
+				td = tool.platform
+				td = "$" + tool.price_dollars.to_s
+				td = (tool.grade_low == tool.grade_high) ? ((tool.grade_low == 0) ? 'K' : tool.grade_low) : "#{(tool.grade_low == 0) ? 'K' : tool.grade_low}-#{tool.grade_high}"
+				td
+					i.material-icons title="Creativity" style="color: #{tool.creativity ? 'black' : 'lightgrey'}" lightbulb_outline
+					i.material-icons title="Communication" style="color: #{tool.communication ? 'black' : 'lightgrey'}" chat
+					i.material-icons title="Collaboration" style="color: #{tool.collaboration ? 'black' : 'lightgrey'}" group_work
+					i.material-icons title="Citizenship" style="color: #{tool.citizenship ? 'black' : 'lightgrey'}" account_balance
+					i.material-icons title="Critical thinking" style="color: #{tool.critical_thinking ? 'black' : 'lightgrey'}" error
+					i.material-icons title="Empowered learner" style="color: #{tool.empowered_learner ? 'black' : 'lightgrey'}" power
+					i.material-icons title="Digital citizen" style="color: #{tool.digital_citizen ? 'black' : 'lightgrey'}" cloud
+					i.material-icons title="Knowledge constructor" style="color: #{tool.knowledge_constructor ? 'black' : 'lightgrey'}" extension
+					i.material-icons title="Innovative designer" style="color: #{tool.innovative_designer ? 'black' : 'lightgrey'}" photo
+					i.material-icons title="Computational thinker" style="color: #{tool.computational_thinker ? 'black' : 'lightgrey'}" pie_chart_outlined
+					i.material-icons title="Creative communicator" style="color: #{tool.creative_communicator ? 'black' : 'lightgrey'}" create
+					i.material-icons title="Global collaborator" style="color: #{tool.global_collaborator ? 'black' : 'lightgrey'}" language
+				td
+					i.material-icons = link_to 'pageview', tool
+				td
+					i.material-icons = link_to 'edit', edit_tool_path(tool)
+				td
+					i.material-icons = link_to 'delete_forever', tool, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Tool', new_tool_path
