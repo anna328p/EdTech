@@ -1,64 +1,38 @@
 - content_for :title, 'Listing tools'
 
-/javascript:
-  window.onload = function () {
-    $('.cards').masonry({
-      itemSelector: '.card',
-    });
-  }
-
-/.row
-  - @tools.each do |tool|
-    .col.s12.m6.l3
-      .cards
-        .card
-          - if tool.picture_url != "" && @pictures
-            .card-image
-              img src=tool.picture_url
-              span.card-title.strokeme = tool.name
-          - else
-            .card-content
-              span.card-title = tool.name
-          .card-content
-            .row
-              .col.s12 = tool.description
-            div
-              i.material-icons title="Creativity" style="color: #{tool.creativity ? 'black' : 'grey'}" lightbulb_outline
-              i.material-icons title="Communication" style="color: #{tool.communication ? 'black' : 'grey'}" chat
-              i.material-icons title="Collaboration" style="color: #{tool.collaboration ? 'black' : 'grey'}" group_work
-              i.material-icons title="Citizenship" style="color: #{tool.citizenship ? 'black' : 'grey'}" account_balance
-              i.material-icons title="Critical thinking" style="color: #{tool.critical_thinking ? 'black' : 'grey'}" error
-            div
-              i.material-icons title="Empowered learner" style="color: #{tool.empowered_learner ? 'black' : 'grey'}" power
-              i.material-icons title="Digital citizen" style="color: #{tool.digital_citizen ? 'black' : 'grey'}" cloud
-              i.material-icons title="Knowledge constructor" style="color: #{tool.knowledge_constructor ? 'black' : 'grey'}" extension
-              i.material-icons title="Innovative designer" style="color: #{tool.innovative_designer ? 'black' : 'grey'}" photo
-              i.material-icons title="Computational thinker" style="color: #{tool.computational_thinker ? 'black' : 'grey'}" pie_chart_outlined
-              i.material-icons title="Creative communicator" style="color: #{tool.creative_communicator ? 'black' : 'grey'}" create
-              i.material-icons title="Global collaborator" style="color: #{tool.global_collaborator ? 'black' : 'grey'}" language
-            .row
-              .col.s6
-                strong Price
-              .col.s6
-                strong Grades
-            .row
-              .col.s6 = '$' + tool.price_dollars.to_s
-              .col.s6 = (tool.grade_low == tool.grade_high) ? ((tool.grade_low == 0) ? 'K' : tool.grade_low) : "#{(tool.grade_low == 0) ? 'K' : tool.grade_low}-#{tool.grade_high}"
-          .card-action
-            = link_to '<i class="material-icons">pageview</i>'.html_safe, tool
-            = link_to '<i class="material-icons">edit</i>'.html_safe, edit_tool_path(tool)
-            = link_to '<i class="material-icons">delete_forever</i>'.html_safe, tool, data: { confirm: 'Are you sure?' }, method: :delete
-
-.row
-	form method='get'
-		.col.s12.m6.l4
-			input type='checkbox' name='filters' id='filters-on-off'
+form method='get'
+	.row
+		.col.s6.m4.l3
+			input type='checkbox' name='filters' id='filters-on-off' checked=(params[:filters] == 'on')
 			label for='filters-on-off' Filters
-		.col.s12.m3.offset-m3.l2.offset-l6
-			input type='submit'
+		.col.s6.m4.l3
+			input type='checkbox' name='cards' id='cards-on-off' checked=(params[:cards] == 'on')
+			label for='cards-on-off' Card View
+		.col.s6.m4.l3
+			input type='checkbox' name='compact' id='compact-on-off' checked=(params[:compact] == 'on')
+			label for='compact-on-off' Compact
+		.col.s6.m12.l3.right-align
+			input.waves-effect.waves-light.btn type='submit'
+	- if params[:filters] == 'on'
+		.row
+			ul class="collapsible" data-collapsible="expandable"
+				li
+					.collapsible-header 21st Century Skills
+					.collapsible-body
+						.row
+							.col.s6.m3.l2 = render partial: 'checkbox', locals: {n: 'creativity'}
+							.col.s6.m3.l2 = render partial: 'checkbox', locals: {n: 'communication'}
+							.col.s6.m3.l2 = render partial: 'checkbox', locals: {n: 'collaboration'}
+							.col.s6.m3.l2 = render partial: 'checkbox', locals: {n: 'citizenship'}
+							.col.s6.m3.l2 = render partial: 'checkbox', locals: {n: 'critical_thinking'}
+				li
+					.collapsible-header ISTE standards
+					.collapsible-body
+						span Lorem ipsum dolor sit amet.
+
 
 - if params[:cards] == 'on'
-	= render 'cards'
+	= render partial: 'cards'
 - else
-	= render 'table'
+	= render partial: 'table'
 

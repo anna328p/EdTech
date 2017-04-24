@@ -26,7 +26,7 @@ table
 						img src=tool.picture_url width="100px"
 				td = tool.platform
 				td = "$" + tool.price_dollars.to_s
-				td = (tool.grade_low == tool.grade_high) ? ((tool.grade_low == 0) ? 'K' : tool.grade_low) : "#{(tool.grade_low == 0) ? 'K' : tool.grade_low}-#{tool.grade_high}"
+				td = tool.grade
 				td
 					i.material-icons title="Creativity" style="color: #{tool.creativity ? 'black' : 'lightgrey'}" lightbulb_outline
 					i.material-icons title="Communication" style="color: #{tool.communication ? 'black' : 'lightgrey'}" chat
