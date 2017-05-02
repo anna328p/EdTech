@@ -1,0 +1,9 @@
+= form_tag '/', method: 'get'
+	.row
+		.col.s12.m4.l3 = easy_checkbox :filters
+		.col.s12.m4.l3 = easy_checkbox :cards, 'Card View'
+		.col.s12.m4.l3 = easy_checkbox :compact
+		.col.s12.l3.right-align
+			input.waves-effect.waves-light.btn type='submit'
+	- if params[:filters]
+		= render partial: 'filters'

@@ -3,13 +3,10 @@ class ToolsController < ApplicationController
 
 	# GET /tools
 	# GET /tools.json
+	# noinspection RailsChecklist01
 	def index
-		if params[:filters] == 'on'
-			@tools = Tool.where 
-		else
-			@tools = Tool.all
-		end
-		@pictures = params[:compact] == 'on' ? false : true
+		@tools    = params[:filters] ? Tool.filter(params) : Tool.all
+		@pictures = !params[:compact]
 	end
 
 	# GET /tools/1

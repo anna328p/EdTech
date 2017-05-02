@@ -1,7 +1,7 @@
 = form_for @tool do |f|
   - if @tool.errors.any?
     #error_explanation
-      h2 = "#{pluralize(@tool.errors.count, "error")} prohibited this tool from being saved:"
+      h2 = "#{pluralize(@tool.errors.count, 'error')} prohibited this tool from being saved:"
       ul
         - @tool.errors.full_messages.each do |message|
           li = message
@@ -10,7 +10,7 @@
     = f.text_field :name, id: :name
     = f.label :name, for: :name
   .field.input-field
-    = f.text_area :description, id: :description, class: "materialize-textarea"
+    = f.text_area :description, id: :description, class: 'materialize-textarea'
     = f.label :description, for: :description
   .field.input-field
     = f.text_field :picture_url, id: :picture_url

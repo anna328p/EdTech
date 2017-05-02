@@ -1,37 +1,8 @@
 - content_for :title, 'Listing tools'
 
-form method='get'
-	.row
-		.col.s6.m4.l3
-			input type='checkbox' name='filters' id='filters-on-off' checked=(params[:filters] == 'on')
-			label for='filters-on-off' Filters
-		.col.s6.m4.l3
-			input type='checkbox' name='cards' id='cards-on-off' checked=(params[:cards] == 'on')
-			label for='cards-on-off' Card View
-		.col.s6.m4.l3
-			input type='checkbox' name='compact' id='compact-on-off' checked=(params[:compact] == 'on')
-			label for='compact-on-off' Compact
-		.col.s6.m12.l3.right-align
-			input.waves-effect.waves-light.btn type='submit'
-	- if params[:filters] == 'on'
-		.row
-			ul class="collapsible" data-collapsible="expandable"
-				li
-					.collapsible-header 21st Century Skills
-					.collapsible-body
-						.row
-							.col.s6.m3.l2 = render partial: 'checkbox', locals: {n: 'creativity'}
-							.col.s6.m3.l2 = render partial: 'checkbox', locals: {n: 'communication'}
-							.col.s6.m3.l2 = render partial: 'checkbox', locals: {n: 'collaboration'}
-							.col.s6.m3.l2 = render partial: 'checkbox', locals: {n: 'citizenship'}
-							.col.s6.m3.l2 = render partial: 'checkbox', locals: {n: 'critical_thinking'}
-				li
-					.collapsible-header ISTE standards
-					.collapsible-body
-						span Lorem ipsum dolor sit amet.
+= render partial: 'options'
 
-
-- if params[:cards] == 'on'
+- if params[:cards]
 	= render partial: 'cards'
 - else
 	= render partial: 'table'

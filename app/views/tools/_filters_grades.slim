@@ -1,0 +1,11 @@
+li
+	.collapsible-header Grade Level
+	.collapsible-body
+		.row
+			.col.s12 = easy_checkbox :enable_grade_level_filtering
+			.col.s12.l6.range-field
+				= label_tag :grade_low, 'From grade'
+				= range_field_tag :grade_low, nil, min: 0, max: 12, step: 1
+			.col.s12.l6.range-field
+				= label_tag :grade_high, 'To grade'
+				= range_field_tag :grade_high, nil, min: 0, max: 12, step: 1

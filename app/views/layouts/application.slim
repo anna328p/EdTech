@@ -1,12 +1,12 @@
 doctype html
 html
   head
-    title EdTech
+    title = yield :title
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"
     script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"
+		meta name="viewport" content="width=device-width, initial-scale=1"
 
   body
     header.page-header
@@ -18,3 +18,4 @@ html
     main
       .row
         .col.s10.offset-s1 = yield
+	= javascript_include_tag 'application', 'data-turbolinks-track': 'reload'

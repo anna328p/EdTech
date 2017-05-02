@@ -1,2 +1,2 @@
-input type='checkbox' name=n id=n checked=(params[n] == 'on')
-label for=n = n.humanize
+= check_box_tag n, true, params[n]
+= label_tag n, n.to_s.humanize
