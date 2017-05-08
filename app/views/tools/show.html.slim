@@ -1,62 +1,60 @@
-p#notice = notice
+- content_for :title, @tool.name
 
-p
-  strong Name:
-  = @tool.name
-p
-  strong Description:
-  = @tool.description
-p
-  strong Picture url:
-  = @tool.picture_url
-p
-  strong Platform:
-  = @tool.platform
-p
-  strong Price:
-  = @tool.price
-p
-  strong Grade low:
-  = @tool.grade_low
-p
-  strong Grade high:
-  = @tool.grade_high
-p
-  strong Creativity:
-  = @tool.creativity
-p
-  strong Communication:
-  = @tool.communication
-p
-  strong Collaboration:
-  = @tool.collaboration
-p
-  strong Citizenship:
-  = @tool.citizenship
-p
-  strong Critical thinking:
-  = @tool.critical_thinking
-p
-  strong Empowered learner:
-  = @tool.empowered_learner
-p
-  strong Digital citizen:
-  = @tool.digital_citizen
-p
-  strong Knowledge constructor:
-  = @tool.knowledge_constructor
-p
-  strong Innovative designer:
-  = @tool.innovative_designer
-p
-  strong Computational thinker:
-  = @tool.computational_thinker
-p
-  strong Creative communicator:
-  = @tool.creative_communicator
-p
-  strong Global collaborator:
-  = @tool.global_collaborator
+.row
+	- if @tool.picture_url
+		.col.s12.m4.push-m8
+			img src=@tool.picture_url width="100%" style="width:100%"
+	.col.s12.m8.pull-m4
+		p#notice = notice
+		blockquote = @tool.description
+		p
+			strong Platform:&nbsp;
+			= @tool.platform
+		p
+			strong Price:
+			= @tool.price
+		p
+			strong Grade low:
+			= @tool.grade_low
+		p
+			strong Grade high:
+			= @tool.grade_high
+		p
+			strong Creativity:
+			= @tool.creativity
+		p
+			strong Communication:
+			= @tool.communication
+		p
+			strong Collaboration:
+			= @tool.collaboration
+		p
+			strong Citizenship:
+			= @tool.citizenship
+		p
+			strong Critical thinking:
+			= @tool.critical_thinking
+		p
+			strong Empowered learner:
+			= @tool.empowered_learner
+		p
+			strong Digital citizen:
+			= @tool.digital_citizen
+		p
+			strong Knowledge constructor:
+			= @tool.knowledge_constructor
+		p
+			strong Innovative designer:
+			= @tool.innovative_designer
+		p
+			strong Computational thinker:
+			= @tool.computational_thinker
+		p
+			strong Creative communicator:
+			= @tool.creative_communicator
+		p
+			strong Global collaborator:
+			= @tool.global_collaborator
 
 = link_to 'Edit', edit_tool_path(@tool)
 '  |

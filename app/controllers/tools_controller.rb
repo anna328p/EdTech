@@ -1,5 +1,6 @@
 class ToolsController < ApplicationController
 	before_action :set_tool, only: [:show, :edit, :update, :destroy]
+	http_basic_authenticate_with name: "techtraining", password: "issaquah2001", only: [:delete, :create, :update, :edit, :new]
 
 	# GET /tools
 	# GET /tools.json
@@ -27,7 +28,7 @@ class ToolsController < ApplicationController
 	# POST /tools.json
 	def create
 		@tool = Tool.new(tool_params)
-
+		@tool.price *= 100
 		respond_to do |format|
 			if @tool.save
 				format.html { redirect_to @tool, notice: 'Tool was successfully created.' }

@@ -1,44 +1,7 @@
 .row
 	.col.s12.cards-container
 		- @tools.each do |tool|
-			.card style='width:100%'
-				- if tool.picture_url != '' && @pictures
-					.card-image
-						img src=tool.picture_url
-						span.card-title.strokeme = tool.name
-				- else
-					.card-content
-						span.card-title = tool.name
-				.card-content
-					.row
-						.col.s12 = tool.description
-					div
-						i.material-icons title="Creativity" style="color: #{tool.creativity ? 'black' : 'grey'}" lightbulb_outline
-						i.material-icons title="Communication" style="color: #{tool.communication ? 'black' : 'grey'}" chat
-						i.material-icons title="Collaboration" style="color: #{tool.collaboration ? 'black' : 'grey'}" group_work
-						i.material-icons title="Citizenship" style="color: #{tool.citizenship ? 'black' : 'grey'}" account_balance
-						i.material-icons title="Critical thinking" style="color: #{tool.critical_thinking ? 'black' : 'grey'}" error
-					div
-						i.material-icons title="Empowered learner" style="color: #{tool.empowered_learner ? 'black' : 'grey'}" power
-						i.material-icons title="Digital citizen" style="color: #{tool.digital_citizen ? 'black' : 'grey'}" cloud
-						i.material-icons title="Knowledge constructor" style="color: #{tool.knowledge_constructor ? 'black' : 'grey'}" extension
-						i.material-icons title="Innovative designer" style="color: #{tool.innovative_designer ? 'black' : 'grey'}" photo
-						i.material-icons title="Computational thinker" style="color: #{tool.computational_thinker ? 'black' : 'grey'}" pie_chart_outlined
-						i.material-icons title="Creative communicator" style="color: #{tool.creative_communicator ? 'black' : 'grey'}" create
-						i.material-icons title="Global collaborator" style="color: #{tool.global_collaborator ? 'black' : 'grey'}" language
-					.row
-						.col.s6
-							strong Price
-						.col.s6
-							strong Grades
-					.row
-						.col.s6 = '$' + tool.price_dollars.to_s
-						.col.s6 = tool.grade
-				.card-action
-					= link_to '<i class="material-icons">pageview</i>'.html_safe, tool
-					= link_to '<i class="material-icons">edit</i>'.html_safe, edit_tool_path(tool)
-					= link_to '<i class="material-icons">delete_forever</i>'.html_safe, tool, data: { confirm: 'Are you sure?' }, method: :delete
-
+			= render partial: 'card', locals: {tool: tool}
 br
 
 = link_to 'New Tool', new_tool_path
