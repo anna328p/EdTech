@@ -1,5 +1,5 @@
 class Tool < ApplicationRecord
-	monetize :price, as: :price_dollars
+	#monetize :price, as: :price_dollars
 	def grade
 		if grade_low == grade_high
 			grade_low&.zero? ? 'K' : grade_low
@@ -8,11 +8,11 @@ class Tool < ApplicationRecord
 		end
 	end
 
-	def full_price
-		# noinspection Style/RedundantSelf
-		"$#{# noinspection RubyResolve
-		self.price_dollars}"
-	end
+	#def full_price
+	#	# noinspection Style/RedundantSelf
+	#	"$#{# noinspection RubyResolve
+	#	self.price_dollars}"
+	#end
 
 	def self.filter(params)
 		result = self.all

@@ -6,7 +6,7 @@ table.responsive-table.highlight
 			- if @pictures
 				th Picture
 			th Platform
-			th Price
+			/th Price
 			th Grades
 			th width="500px" Standards
 			th title="View"
@@ -25,7 +25,7 @@ table.responsive-table.highlight
 					td
 						img src=tool.picture_url width="100px"
 				td = tool.platform
-				td = "$" + tool.price_dollars.to_s
+				/td = "$" + tool.price_dollars.to_s
 				td = tool.grade
 				td
 					i.material-icons title="Creativity" style="color: #{tool.creativity ? 'black' : 'lightgrey'}" lightbulb_outline
