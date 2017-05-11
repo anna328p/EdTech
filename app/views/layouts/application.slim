@@ -1,20 +1,24 @@
 doctype html
 html
-  head
-    title = yield :title
-    = csrf_meta_tags
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-    link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"
-		meta name="viewport" content="width=device-width, initial-scale=1"
+	head
+		title = yield :title
+		= csrf_meta_tags
+		= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+		link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"
+	meta name="viewport" content="width=device-width, initial-scale=1"
 
-  body
-    header.page-header
-      .row
-        .col.s10.offset-s1
-          .section
-            h2 = yield :title
-          .divider
-    main
-      .row
-        .col.s10.offset-s1 = yield
+	body
+		header.page-header
+			- if ['/', '/tools'].include? request.env['PATH_INFO']
+				.row
+					= render partial: 'banner'
+			- else
+				.row
+					.col.s10.offset-s1
+						.section
+							h2 = yield :title
+						.divider
+		main
+			.row
+				.col.s10.offset-s1 = yield
 	= javascript_include_tag 'application', 'data-turbolinks-track': 'reload'

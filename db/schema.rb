@@ -10,14 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170328173647) do
+ActiveRecord::Schema.define(version: 20170509200943) do
 
   create_table "tools", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
     t.string   "picture_url"
     t.string   "platform"
-    t.integer  "price"
     t.integer  "grade_low"
     t.integer  "grade_high"
     t.boolean  "creativity"
