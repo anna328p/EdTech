@@ -9,27 +9,29 @@
 	.card-content
 		.row
 			.col.s12 = tool.description
-		div
-			i.material-icons title="Creativity" style="color: #{tool.creativity ? 'black' : 'grey'}" lightbulb_outline
-			i.material-icons title="Communication" style="color: #{tool.communication ? 'black' : 'grey'}" chat
-			i.material-icons title="Collaboration" style="color: #{tool.collaboration ? 'black' : 'grey'}" group_work
-			i.material-icons title="Citizenship" style="color: #{tool.citizenship ? 'black' : 'grey'}" account_balance
-			i.material-icons title="Critical thinking" style="color: #{tool.critical_thinking ? 'black' : 'grey'}" error
-		div
-			i.material-icons title="Empowered learner" style="color: #{tool.empowered_learner ? 'black' : 'grey'}" power
-			i.material-icons title="Digital citizen" style="color: #{tool.digital_citizen ? 'black' : 'grey'}" cloud
-			i.material-icons title="Knowledge constructor" style="color: #{tool.knowledge_constructor ? 'black' : 'grey'}" extension
-			i.material-icons title="Innovative designer" style="color: #{tool.innovative_designer ? 'black' : 'grey'}" photo
-			i.material-icons title="Computational thinker" style="color: #{tool.computational_thinker ? 'black' : 'grey'}" pie_chart_outlined
-			i.material-icons title="Creative communicator" style="color: #{tool.creative_communicator ? 'black' : 'grey'}" create
-			i.material-icons title="Global collaborator" style="color: #{tool.global_collaborator ? 'black' : 'grey'}" language
+		.row
+			.col.s12
+				div
+					= icon 'Creativity', tool.creativity, 'lightbulb_outline'
+					= icon 'Communication', tool.communication, 'chat'
+					= icon 'Collaboration', tool.collaboration, 'group_work'
+					= icon 'Citizenship', tool.citizenship, 'account_balance'
+					= icon 'Critical thinking', tool.critical_thinking, 'error'
+				div
+					= icon 'Empowered learner', tool.empowered_learner, 'power'
+					= icon 'Digital citizen', tool.digital_citizen, 'cloud'
+					= icon 'Knowledge constructor', tool.knowledge_constructor, 'extension'
+					= icon 'Innovative designer', tool.innovative_designer, 'photo'
+					= icon 'Computational thinker', tool.computational_thinker, 'pie_chart_outlined'
+					= icon 'Creative communicator', tool.creative_communicator, 'create'
+					= icon 'Global collaborator', tool.global_collaborator, 'language'
 		.row
 			/.col.s6
 				strong Price
 			.col.s6
 				strong Grades
 		.row
-			.col.s6 = '$' + tool.price_dollars.to_s
+			/.col.s6 = '$' + tool.price_dollars.to_s
 			.col.s6 = tool.grade
 	.card-action
 		= link_to '<i class="material-icons">pageview</i>'.html_safe, tool

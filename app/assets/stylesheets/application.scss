@@ -24,7 +24,7 @@
 }
 
 .grey {
-   color: 222222;
+   color: #222222;
 }
 
 // Media Query Ranges
@@ -69,4 +69,34 @@ $medium-only: "only screen and (min-width : #{$small-screen-up}) and (max-width 
   .cards-container {
     @include column-count(4);
   }
+}
+
+@mixin filter($f) {
+  -webkit-filter: $f;
+  filter: $f;
+}
+
+.banner {
+  width: 100%;
+  vertical-align: center;
+}
+
+.inline-d {
+  display: inline;
+}
+.banner-img {
+  height: 100px;
+  margin: 10px;
+  @include filter(grayscale(100%));
+  @include filter(brightness(100%));
+  vertical-align: middle;
+}
+
+.banner-text {
+  vertical-align: middle;
+  font-size: 72px;
+}
+
+.vmiddle {
+  vertical-align: middle;
 }

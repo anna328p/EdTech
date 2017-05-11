@@ -28,18 +28,19 @@ table.responsive-table.highlight
 				/td = "$" + tool.price_dollars.to_s
 				td = tool.grade
 				td
-					i.material-icons title="Creativity" style="color: #{tool.creativity ? 'black' : 'lightgrey'}" lightbulb_outline
-					i.material-icons title="Communication" style="color: #{tool.communication ? 'black' : 'lightgrey'}" chat
-					i.material-icons title="Collaboration" style="color: #{tool.collaboration ? 'black' : 'lightgrey'}" group_work
-					i.material-icons title="Citizenship" style="color: #{tool.citizenship ? 'black' : 'lightgrey'}" account_balance
-					i.material-icons title="Critical thinking" style="color: #{tool.critical_thinking ? 'black' : 'lightgrey'}" error
-					i.material-icons title="Empowered learner" style="color: #{tool.empowered_learner ? 'black' : 'lightgrey'}" power
-					i.material-icons title="Digital citizen" style="color: #{tool.digital_citizen ? 'black' : 'lightgrey'}" cloud
-					i.material-icons title="Knowledge constructor" style="color: #{tool.knowledge_constructor ? 'black' : 'lightgrey'}" extension
-					i.material-icons title="Innovative designer" style="color: #{tool.innovative_designer ? 'black' : 'lightgrey'}" photo
-					i.material-icons title="Computational thinker" style="color: #{tool.computational_thinker ? 'black' : 'lightgrey'}" pie_chart_outlined
-					i.material-icons title="Creative communicator" style="color: #{tool.creative_communicator ? 'black' : 'lightgrey'}" create
-					i.material-icons title="Global collaborator" style="color: #{tool.global_collaborator ? 'black' : 'lightgrey'}" language
+					= icon 'Creativity', tool.creativity, 'lightbulb_outline'
+					= icon 'Communication', tool.communication, 'chat'
+					= icon 'Collaboration', tool.collaboration, 'group_work'
+					= icon 'Citizenship', tool.citizenship, 'account_balance'
+					= icon 'Critical thinking', tool.critical_thinking, 'error'
+
+					= icon 'Empowered learner', tool.empowered_learner, 'power'
+					= icon 'Digital citizen', tool.digital_citizen, 'cloud'
+					= icon 'Knowledge constructor', tool.knowledge_constructor, 'extension'
+					= icon 'Innovative designer', tool.innovative_designer, 'photo'
+					= icon 'Computational thinker', tool.computational_thinker, 'pie_chart_outlined'
+					= icon 'Creative communicator', tool.creative_communicator, 'create'
+					= icon 'Global collaborator', tool.global_collaborator, 'language'
 				td
 					i.material-icons = link_to 'pageview', tool
 				td
