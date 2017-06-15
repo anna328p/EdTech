@@ -28,7 +28,6 @@ class ToolsController < ApplicationController
 	# POST /tools.json
 	def create
 		@tool = Tool.new(tool_params)
-		@tool.price *= 100
 		respond_to do |format|
 			if @tool.save
 				format.html { redirect_to @tool, notice: 'Tool was successfully created.' }
@@ -72,6 +71,6 @@ class ToolsController < ApplicationController
 
 	# Never trust parameters from the scary internet, only allow the white list through.
 	def tool_params
-		params.require(:tool).permit(:name, :description, :picture_url, :platform, :price, :grade_low, :grade_high, :creativity, :communication, :collaboration, :citizenship, :critical_thinking, :empowered_learner, :digital_citizen, :knowledge_constructor, :innovative_designer, :computational_thinker, :creative_communicator, :global_collaborator)
+		params.require(:tool).permit(:name, :description, :picture_url, :platform, :grade_low, :grade_high, :creativity, :communication, :collaboration, :citizenship, :critical_thinking, :empowered_learner, :digital_citizen, :knowledge_constructor, :innovative_designer, :computational_thinker, :creative_communicator, :global_collaborator)
 	end
 end
